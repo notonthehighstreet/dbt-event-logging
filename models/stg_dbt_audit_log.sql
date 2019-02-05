@@ -1,6 +1,6 @@
 with audit as (
-
-    select * from {{this.schema}}.dbt_audit_log
+    {%- set logging_table = logging.get_audit_relation() -%}
+    select * from {{logging_table.schema}}.dbt_audit_log
 
 ),
 
